@@ -37,6 +37,10 @@ h1{margin:0;font-size:26px;font-weight:800;letter-spacing:-.02em}
 .banner ol{margin:7px 0 0;padding-left:19px}
 .banner li{margin-bottom:3px}
 
+.vtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.02em;
+  padding:4px 10px;border-radius:3px;margin-bottom:8px;background:rgba(47,122,87,.12);color:var(--green)}
+.vtag.old{background:rgba(22,38,58,.09);color:var(--ink-60)}
+
 .datebar{display:flex;align-items:center;gap:8px;background:var(--card);border-radius:6px;
   padding:8px 10px;margin-bottom:14px}
 .datebar.past{background:#FBF1E0;box-shadow:inset 0 0 0 1.5px var(--amber)}
@@ -139,7 +143,7 @@ section{margin-bottom:30px}
 <body>
 <div class="wrap">
 <header>
-  <p class="eyebrow">Good Start KYOTO — 2026/7/15版</p>
+  <p class="eyebrow">Good Start KYOTO — 渡辺清二</p>
   <h1>トレーニング記録</h1>
 </header>
 
@@ -154,6 +158,7 @@ section{margin-bottom:30px}
   以後はホーム画面のアイコンから開いてください。記録が残ります。
 </div>
 
+<div class="vtag" id="vtag">—</div>
 <div class="datebar" id="datebar">
   <button class="nav" id="prev" aria-label="前の日">‹</button>
   <div class="dlabel" id="dlabel">—</div>
@@ -231,9 +236,17 @@ w7:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="10" y1="74" x2="1
 w9:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="52" cy="14" r="6"/><line x1="52" y1="21" x2="54" y2="44"/><line class="ac" x1="52" y1="44" x2="44" y2="60"/><line class="ac" x1="44" y1="60" x2="44" y2="74"/><line x1="56" y1="44" x2="76" y2="54"/><line x1="76" y1="54" x2="90" y2="62"/><line class="ac" x1="56" y1="26" x2="32" y2="42"/></svg>`,
 w8:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="10" y1="72" x2="110" y2="72"/><circle class="hd" cx="23" cy="46" r="6"/><line x1="31" y1="50" x2="31" y2="70"/><line class="ac" x1="31" y1="50" x2="94" y2="63"/><line x1="94" y1="63" x2="102" y2="70"/></svg>`,
 s1:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="100" y1="6" x2="100" y2="74"/><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="72" cy="25" r="6"/><line x1="97" y1="29" x2="77" y2="31"/><line class="ac" x1="71" y1="33" x2="57" y2="46"/><line x1="57" y1="46" x2="46" y2="60"/><line x1="46" y1="60" x2="42" y2="74"/><path class="ac" d="M64 22 Q76 16 82 24" stroke-width="3"/></svg>`,
-s2:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="100" y1="6" x2="100" y2="74"/><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="76" cy="30" r="6"/><line class="ac" x1="97" y1="22" x2="74" y2="36"/><line x1="72" y1="38" x2="56" y2="48"/><line x1="56" y1="48" x2="46" y2="61"/><line x1="46" y1="61" x2="42" y2="74"/></svg>`};
+s2:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="100" y1="6" x2="100" y2="74"/><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="76" cy="30" r="6"/><line class="ac" x1="97" y1="22" x2="74" y2="36"/><line x1="72" y1="38" x2="56" y2="48"/><line x1="56" y1="48" x2="46" y2="61"/><line x1="46" y1="61" x2="42" y2="74"/></svg>`,
+n3:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="10" y1="72" x2="110" y2="72"/><circle class="hd" cx="30" cy="40" r="6"/><line x1="36" y1="44" x2="78" y2="44"/><line x1="44" y1="44" x2="44" y2="70"/><line x1="76" y1="44" x2="78" y2="68"/><circle class="ac" cx="26" cy="68" r="5"/><path class="ac" d="M36 64 Q48 54 60 64" stroke-dasharray="5 4"/><circle class="ac" cx="64" cy="68" r="5"/></svg>`,
+n5:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="34" cy="26" r="6"/><line class="ac" x1="30" y1="22" x2="78" y2="36"/><line x1="40" y1="30" x2="70" y2="40"/><line x1="70" y1="40" x2="68" y2="56"/><line x1="68" y1="56" x2="66" y2="74"/><line x1="70" y1="40" x2="78" y2="56"/><line x1="78" y1="56" x2="78" y2="74"/></svg>`,
+n6:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="14" y1="74" x2="106" y2="74"/><line class="eq" x1="16" y1="40" x2="46" y2="40"/><line class="eq" x1="20" y1="40" x2="20" y2="74"/><line class="eq" x1="42" y1="40" x2="42" y2="74"/><circle class="hd" cx="36" cy="26" r="6"/><line x1="40" y1="30" x2="76" y2="40"/><line x1="44" y1="31" x2="34" y2="40"/><line class="ac" x1="72" y1="39" x2="72" y2="58"/><line class="ac" x1="72" y1="58" x2="70" y2="74"/><line x1="76" y1="40" x2="96" y2="34"/></svg>`,
+s3:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="14" y1="72" x2="106" y2="72"/><circle class="hd" cx="42" cy="22" r="6"/><line x1="44" y1="28" x2="50" y2="50"/><line class="ac" x1="50" y1="50" x2="74" y2="44"/><line class="ac" x1="74" y1="44" x2="66" y2="64"/><line x1="50" y1="52" x2="78" y2="62"/><line x1="78" y1="62" x2="90" y2="70"/><line x1="48" y1="34" x2="70" y2="48"/></svg>`,
+s4:`<svg class="fig" viewBox="0 0 120 80"><line class="eq" x1="14" y1="74" x2="106" y2="74"/><circle class="hd" cx="46" cy="16" r="6"/><line x1="48" y1="22" x2="56" y2="42"/><line x1="50" y1="28" x2="68" y2="44"/><line class="ac" x1="68" y1="44" x2="60" y2="50"/><line class="ac" x1="56" y1="42" x2="72" y2="58"/><line class="ac" x1="72" y1="58" x2="76" y2="74"/><line x1="56" y1="42" x2="44" y2="58"/><line x1="44" y1="58" x2="42" y2="74"/></svg>`};
 
-const MENU={
+
+FIG.n1=FIG.d1; FIG.n2=FIG.d2; FIG.n4=FIG.d4;
+
+const OLD={
  daily:[
   {id:'d1',no:'①',name:'マイナーチェンジ',reps:'2〜3セット',det:'<b>壁に足裏をつけて</b>、膝・股関節ともに90度で仰向けに寝る。<br><b>呼吸＝鼻から5秒吸う → 口から10秒吐く → 吐き切って3秒止める</b>。<br>2呼吸 → かかとを地面の方へずらすイメージで（実際にはずらさない）お尻を少し浮かせて2呼吸 → 右のかかとを壁から浮かせて3呼吸（左ハムを活性化）。<br>左手は天井へ伸ばし2Lペットボトルを持つ。'},
   {id:'d2',no:'②',name:'四つ這いで床押し',reps:'2〜3セット',det:'四つ這いで床をしっかり押し、背中を丸める。呼吸は①と同じ。<br>1呼吸 → 体を右にずらし左手を浮かせ、右手で床を押しながら2呼吸 → 中央で両手均等に1呼吸 → 左にずらし右手を浮かせ2呼吸 → 中央で1呼吸。'},
@@ -249,14 +262,33 @@ const MENU={
   {id:'s1',no:'A',name:'胋骨の横を伸ばす',reps:'3〜4呼吸 × 左右',det:'右手の親指を<b>下</b>に向けて柱などを掴む。右足を後ろにして、右のかかととお尻に体重を乗せるように体を後ろへ引き、右脇の下から右側を覔き込むようにひねる。<br>呼吸＝5秒吸う → 10秒吐く → 3秒止める、を3〜4回。逆側も。'},
   {id:'s2',no:'B',name:'広背筋ストレッチ',reps:'3〜4呼吸 × 左右',det:'右手の親指を<b>上</b>に向けて柱などを掴む。右足を後ろにして、右のかかととお尻に体重を乗せるように体を後ろへ引く。<br>呼吸は3〜4回。逆側も。'}]};
 
-let state={startDate:'2026-07-15',records:{}}, photos={}, pendingId=null, viewDate=null;
+const NEW={
+ daily:[
+  {id:'n1',no:'\u2460',name:'90-90 \u30d2\u30c3\u30d7\u30ea\u30d5\u30c8',reps:'2\u301c3\u30bb\u30c3\u30c8',det:'\u58c1\u306b\u8db3\u88cf\u3092\u3064\u3051\u3001\u819d\u30fb\u80a1\u95a2\u7bc0\u3068\u3082\u306b90\u5ea6\u3067\u4ef0\u5411\u3051\u306b\u5bdd\u308b\u3002<br><b>\u547c\u5438\uff1d\u9f3b\u304b\u30895\u79d2\u5438\u3046 \u2192 \u53e3\u304b\u308910\u79d2\u5410\u304f \u2192 \u5410\u304d\u5207\u3063\u30663\u79d2\u6b62\u3081\u308b</b>\u3002<br>2\u547c\u5438 \u2192 \u304b\u304b\u3068\u3092\u5730\u9762\u306e\u65b9\u3078\u305a\u3089\u3059\u30a4\u30e1\u30fc\u30b8\u3067\uff08\u5b9f\u969b\u306b\u306f\u305a\u3089\u3055\u306a\u3044\uff09\u304a\u5c3b\u3092\u5c11\u3057\u6d6e\u304b\u305b\u30662\u547c\u5438 \u2192 \u53f3\u306e\u304b\u304b\u3068\u3092\u58c1\u304b\u3089\u6d6e\u304b\u305b\u30663\u547c\u5438\uff08\u5de6\u30cf\u30e0\u3092\u6d3b\u6027\u5316\uff09\u3002<br>\u5de6\u624b\u306f\u5929\u4e95\u3078\u4f38\u3070\u3057\u30012L\u30da\u30c3\u30c8\u30dc\u30c8\u30eb\u3092<b>\u7e26\u306b</b>\u6301\u3064\u3002'},
+  {id:'n2',no:'\u2461',name:'\u56db\u3064\u9019\u3044\u80cc\u4e2d\u4e38\u3081',reps:'2\u301c3\u30bb\u30c3\u30c8',det:'\u56db\u3064\u9019\u3044\u3067\u5e8a\u3092\u3057\u3063\u304b\u308a\u62bc\u3057\u3001\u80cc\u4e2d\u3092\u4e38\u3081\u308b\u3002\u547c\u5438\u306f\u2460\u3068\u540c\u3058\u3002<br>1\u547c\u5438 \u2192 \u4f53\u3092\u53f3\u306b\u305a\u3089\u3057\u5de6\u624b\u3092\u6d6e\u304b\u305b\u3001\u53f3\u624b\u3067\u5e8a\u3092\u62bc\u3057\u306a\u304c\u30892\u547c\u5438 \u2192 \u4e2d\u592e\u3067\u4e21\u624b\u5747\u7b49\u306b1\u547c\u5438 \u2192 \u5de6\u306b\u305a\u3089\u3057\u53f3\u624b\u3092\u6d6e\u304b\u305b2\u547c\u5438 \u2192 \u4e2d\u592e\u30671\u547c\u5438\u3002'},
+  {id:'n3',no:'\u2462',name:'\u56db\u3064\u9019\u3044\u30de\u30fc\u30ab\u30fc\u52d5\u304b\u3057',reps:'\u65b0\u898f \uff5c 6\u56de\u00d72\u901a\u308a',det:'\u56db\u3064\u9019\u3044\u3067<b>\u80cc\u4e2d\u306f\u307e\u3063\u3059\u3050</b>\u3002\u53f3\u624b\u306e\u524d\u306b\u30de\u30fc\u30ab\u30fc\u306a\u3069\u3092\u7f6e\u304d\u3001\u305d\u308c\u3092\u5de6\u624b\u3067\u5de6\u624b\u306e\u524d\u306b\u52d5\u304b\u3059\u3002\u9006\u3082\u884c\u3046\u3002<br>6\u56de\u52d5\u304b\u3057\u305f\u3089\u3001<b>\u819d\u3092\u6d6e\u304b\u3057\u3066</b>\u540c\u3058\u3088\u3046\u306b6\u56de\u3002'},
+  {id:'n4',no:'\u2463',name:'\u80cb\u9aa8\u637b\u308a',reps:'4\u301c5\u547c\u5438 \u00d7 \u5de6\u53f3',det:'\u58c1\u304b\u308910cm\u307b\u3069\u96e2\u308c\u3001\u53f3\u8db3\u3092\u524d\u306b\u3057\u3066\u7acb\u3064\u3002\u4e21\u624b\u3092\u524d\u306b\u51fa\u3057\u624b\u306e\u3072\u3089\u3092\u58c1\u306b\u3064\u3051\u308b\u3002<br>\u53f3\u624b\u306f\u5927\u304d\u306a\u5186\u3092\u63cf\u304f\u3088\u3046\u306b\u5f8c\u308d\u3078\u3002\u5de6\u624b\u306f\u5c11\u3057\u524d\u3078\u62bc\u3057\u51fa\u3059\u30a4\u30e1\u30fc\u30b8\u3067\u606f\u3092\u9577\u304f\u5410\u304f\u3002\u5438\u3046\u3068\u304d\u306f\u53f3\u306e\u80f8\u306b\u7a7a\u6c17\u304c\u5165\u308b\u30a4\u30e1\u30fc\u30b8\u30024\u301c5\u547c\u5438\u3001\u9006\u5074\u3082\u3002'}],
+ weekly:[
+  {id:'n5',no:'\u2464',name:'\u30b0\u30c3\u30c9\u30e2\u30fc\u30cb\u30f3\u30b0',reps:'\u65b0\u898f \uff5c 5\u56de\u00d73\u901a\u308a',det:'\u9aa8\u76e4\u5e45\u3067\u7acb\u3061\u3001<b>\u80cc\u4e2d\u306b\u68d2\u72b6\u306e\u3082\u306e\u3092\u5f53\u3066\u3066</b>\u80a1\u95a2\u7bc0\u3067\u8eab\u4f53\u3092\u6298\u308a\u305f\u305f\u3080\u3002\u68d2\u304c\u80cc\u4e2d\u304b\u3089\u96e2\u308c\u306a\u3044\u3088\u3046\u306b\u3002<br>\u4e0b\u30672\u79d2\u30ad\u30fc\u30d7\u30925\u56de\u3002\u305d\u306e\u3042\u3068\u3001\u53f3\u8db3\u3092\u5c11\u3057\u5f8c\u308d\u306b\u5f15\u304f\u7248\u3001\u5de6\u8db3\u3092\u5c11\u3057\u5f8c\u308d\u306b\u5f15\u304f\u7248\u3082\u540c\u3058\u3088\u3046\u306b\u3002<br>\u6642\u9593\u304c\u3042\u308c\u30702\u301c3\u30bb\u30c3\u30c8\u3002'},
+  {id:'n6',no:'\u2465',name:'\u7247\u811a\u9aa8\u76e4\u30ed\u30fc\u30c6',reps:'\u65b0\u898f \uff5c 5\u56de \u00d7 \u5de6\u53f3',det:'\u30d9\u30f3\u30c1\u306a\u3069\u306b\u624b\u3092\u3064\u3044\u3066<b>\u5de6\u8db3\u3067\u7acb\u3061</b>\u3001\u53f3\u811a\u3092\u4e0a\u3052\u308b\u3002\u80a1\u95a2\u7bc0\u304b\u3089\u3057\u3063\u304b\u308a\u8eab\u4f53\u3092\u5012\u3057\u3001\u304a\u3078\u305d\u304c\u3057\u3063\u304b\u308a\u4e0b\u3092\u5411\u304f\u3088\u3046\u306b\u3057\u3066\u5de6\u80a1\u95a2\u7bc0\u306b\u4f53\u91cd\u3092\u4e57\u305b2\u79d2\u30ad\u30fc\u30d7\u3002<br>\u305d\u3053\u304b\u3089\u8eab\u4f53\u3092\u5c11\u3057\u3060\u3051\u53f3\u306b\u5411\u3051\u3001\u307e\u305f\u5143\u306b\u623b\u3059\u30925\u56de\u3002\u9006\u5074\u3082\u3002'}],
+ stretch:[
+  {id:'s1',no:'A',name:'\u80cb\u9593\u7b4b\u30b9\u30c8\u30ec\u30c3\u30c1',reps:'3\u301c4\u547c\u5438 \u00d7 \u5de6\u53f3',det:'\u53f3\u624b\u306e\u89aa\u6307\u3092<b>\u4e0b</b>\u306b\u5411\u3051\u3066\u67f1\u306a\u3069\u3092\u63b4\u3080\u3002\u53f3\u8db3\u3092\u5f8c\u308d\u306b\u3057\u3066\u3001\u53f3\u306e\u304b\u304b\u3068\u3068\u304a\u5c3b\u306b\u4f53\u91cd\u3092\u4e57\u305b\u308b\u3088\u3046\u306b\u4f53\u3092\u5f8c\u308d\u3078\u5f15\u304d\u3001\u53f3\u8107\u306e\u4e0b\u304b\u3089\u53f3\u5074\u3092\u8994\u304d\u8fbc\u3080\u3088\u3046\u306b\u3072\u306d\u308b\u3002<br>\u547c\u5438\uff1d5\u79d2\u5438\u3046 \u2192 10\u79d2\u5410\u304f \u2192 3\u79d2\u6b62\u3081\u308b\u3001\u30923\u301c4\u56de\u3002\u9006\u5074\u3082\u3002'},
+  {id:'s2',no:'B',name:'\u5e83\u80cc\u7b4b\u30b9\u30c8\u30ec\u30c3\u30c1',reps:'3\u301c4\u547c\u5438 \u00d7 \u5de6\u53f3',det:'\u53f3\u624b\u306e\u89aa\u6307\u3092<b>\u4e0a</b>\u306b\u5411\u3051\u3066\u67f1\u306a\u3069\u3092\u63b4\u3080\u3002\u53f3\u8db3\u3092\u5f8c\u308d\u306b\u3057\u3066\u3001\u53f3\u306e\u304b\u304b\u3068\u3068\u304a\u5c3b\u306b\u4f53\u91cd\u3092\u4e57\u305b\u308b\u3088\u3046\u306b\u4f53\u3092\u5f8c\u308d\u3078\u5f15\u304f\u3002<br>\u547c\u5438\u306f3\u301c4\u56de\u3002\u9006\u5074\u3082\u3002'},
+  {id:'s3',no:'C',name:'\u304a\u5c3b\u306e\u30b9\u30c8\u30ec\u30c3\u30c1',reps:'\u65b0\u898f \uff5c 3\u301c4\u547c\u5438 \u00d7 \u5de6\u53f3',det:'\u5730\u9762\u306b\u811a\u3092\u30af\u30ed\u30b9\u3057\u3066\u5ea7\u308a\u3001<b>\u53f3\u819d\u3092\u5de6\u80a9\u306e\u65b9\u306b\u5f15\u304d\u5bc4\u305b\u308b</b>\u3002\u9006\u5074\u3082\u884c\u3046\u3002<br>\u547c\u5438\uff1d5\u79d2\u5438\u3046 \u2192 10\u79d2\u5410\u304f \u2192 3\u79d2\u6b62\u3081\u308b\u3001\u30923\u301c4\u56de\u3002'},
+  {id:'s4',no:'D',name:'\u7acb\u4f4d\u7248 \u304a\u5c3b\u306e\u30b9\u30c8\u30ec\u30c3\u30c1',reps:'\u65b0\u898f \uff5c 3\u301c4\u547c\u5438 \u00d7 \u5de6\u53f3',det:'\u9aa8\u76e4\u306e\u5e45\u3067\u7acb\u3061\u3001\u5de6\u8db3\u3092\u5c11\u3057\u5f15\u304f\u3002\u53f3\u624b\u3092\u5de6\u819d\u306e\u5916\u5074\u306b\u7f6e\u3044\u3066\u819d\u304c\u958b\u304b\u306a\u3044\u3088\u3046\u306b\u3057\u3001\u5de6\u306e\u304a\u5c3b\u3092\u53f3\u5f8c\u308d\u306b\u5f15\u3044\u3066\u4f38\u3070\u3059\u3002<br>\u547c\u5438\u306f3\u301c4\u56de\u3002\u9006\u5074\u3082\u3002'}]};
+
+const SWITCH='2026-10-29';
+const menuFor=d=>d<SWITCH?OLD:NEW;
+const ALLITEMS=[...OLD.daily,...OLD.weekly,...OLD.stretch,...NEW.daily,...NEW.weekly,...NEW.stretch];
+
+let state={startDate:'2026-10-28',records:{}}, photos={}, pendingId=null, viewDate=null;
 
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const parse=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 const today=()=>iso(new Date());
 const diffDays=(a,b)=>Math.round((parse(b)-parse(a))/86400000);
 const done=(date,id)=>(state.records[date]||[]).includes(id);
-const item=id=>[...MENU.daily,...MENU.weekly,...MENU.stretch].find(x=>x.id===id);
+const item=id=>ALLITEMS.find(x=>x.id===id);
 
 function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');
   clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),1400);}
@@ -377,15 +409,19 @@ function render(){
   document.getElementById('datebar').classList.toggle('past',!isToday);
   document.getElementById('next').disabled=isToday;
   document.getElementById('tobtn').hidden=isToday;
-  document.getElementById('dailyList').innerHTML=MENU.daily.map(i=>row(i,'daily')).join('');
-  document.getElementById('weeklyList').innerHTML=MENU.weekly.map(i=>row(i,'weekly')).join('');
-  document.getElementById('stretchList').innerHTML=MENU.stretch.map(i=>row(i,'stretch')).join('');
+  const M=menuFor(viewDate);
+  document.getElementById('vtag').textContent=viewDate<SWITCH?'7/15版のメニュー':'10/28版のメニュー';
+  document.getElementById('vtag').className='vtag'+(viewDate<SWITCH?' old':'');
+  document.getElementById('dailyList').innerHTML=M.daily.map(i=>row(i,'daily')).join('');
+  document.getElementById('weeklyList').innerHTML=M.weekly.map(i=>row(i,'weekly')).join('');
+  document.getElementById('stretchList').innerHTML=M.stretch.map(i=>row(i,'stretch')).join('');
   document.getElementById('sd').value=state.startDate;
   open.forEach(id=>{const r=document.querySelector(`[data-row="${id}"]`);
     if(r){r.classList.add('open');r.querySelector('.more').textContent='閉じる';}});
 
   const total=Math.max(1,diffDays(state.startDate,d));
-  const dailyIds=MENU.daily.map(i=>i.id),weekIds=MENU.weekly.map(i=>i.id);
+  const dailyIds=NEW.daily.map(i=>i.id),weekIds=NEW.weekly.map(i=>i.id);
+  const oDaily=OLD.daily.map(i=>i.id),oWeek=OLD.weekly.map(i=>i.id);
   let hit=0,wkDays=0;
   Object.keys(state.records).forEach(k=>{
     if(k<=state.startDate||k>d)return;const r=state.records[k];
@@ -398,8 +434,9 @@ function render(){
 
   let cells='';
   for(let i=27;i>=0;i--){const dd=new Date();dd.setDate(dd.getDate()-i);const k=iso(dd);
-    const r=state.records[k]||[];const n=dailyIds.filter(x=>r.includes(x)).length;
-    cells+=`<div class="cell ${n?'f'+n:''} ${weekIds.some(x=>r.includes(x))?'wk':''} ${i===0?'today':''} ${k===viewDate?'sel':''}" data-date="${k}" role="button" tabindex="0">${dd.getDate()}</div>`;}
+    const r=state.records[k]||[];const useD=k<SWITCH?oDaily:dailyIds,useW=k<SWITCH?oWeek:weekIds;
+    const n=useD.filter(x=>r.includes(x)).length;
+    cells+=`<div class="cell ${n?'f'+n:''} ${useW.some(x=>r.includes(x))?'wk':''} ${i===0?'today':''} ${k===viewDate?'sel':''}" data-date="${k}" role="button" tabindex="0">${dd.getDate()}</div>`;}
   document.getElementById('hist').innerHTML=cells;
   renderStatus();
 }
